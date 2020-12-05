@@ -7,7 +7,11 @@ const Input = (props) => {
   const { visited, setVisited } = React.useContext(FormContext);
   console.error("visited", visited);
   const { required = false, ...otherProps } = props;
-  let { id, value = "" } = props;
+  let { id, placeholder = "", value = "" } = props;
+  if (required) {
+    placeholder += " (required)";
+  }
+
   const showRequired = required && value.length === 0 && visited[id];
   const inputClass = clsx("NBSInput", { showRequired });
   const handleBlur = () => {
@@ -15,7 +19,12 @@ const Input = (props) => {
   };
   return (
     <div>
-      <input className={inputClass} {...otherProps} onBlur={handleBlur} />
+      <input
+        className={inputClass}
+        {...otherProps}
+        placeholder={placeholder}
+        onBlur={handleBlur}
+      />
     </div>
   );
 };
