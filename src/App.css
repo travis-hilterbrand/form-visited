@@ -1,3 +1,12 @@
+.NBSForm {
+  margin-bottom: 8px;
+  border: 1px solid grey;
+  border-radius: 8px;
+  padding: 8px;
+}
 .NBSInput {
   margin-bottom: 8px;
+}
+.NBSInput.showRequired {
+  background: tan;
 }
